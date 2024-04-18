@@ -10,4 +10,11 @@ Rails.application.routes.draw do
 
   get 'terms_of_service', to: 'terms_of_service#show'
   get 'privacy_policy', to: 'privacy_policy#show'
+
+  namespace :admin, path: 'aaaaaaaa' do
+    root to: 'tops#index', as: 'root'
+    devise_for :administrators,
+                only: %i[session password],
+                controllers: { passwords: 'admin/passwords',sessions: 'admin/sessions' }
+  end
 end
