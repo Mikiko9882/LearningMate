@@ -2,9 +2,9 @@
 <div class="container d-flex flex-wrap justify-content-center justify-content-center pt-5">
   <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 526px;">
     <h1><%= t('.title') %></h1>
-    <div class="text-right mb-3">
+    <div class="btn-group mb-3" role="group">
       <%= link_to t('defaults.edit'), edit_admin_school_path(@school), class: 'btn btn-success' %>
-      <%= link_to t('defaults.delete'), admin_school_path(@school), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+      <%= button_to t('defaults.delete'), admin_school_path(@school), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
     </div>
     <table class="table table-bordered bg-white">
       <tr>
