@@ -8,6 +8,7 @@ class Admin::SchoolsController < Admin::BaseController
   # 新しい学校を作成するためのフォームを表示するアクション
   def new
     @school = School.new
+    @school.generate_unique_code
   end
     
   # 新しい学校を作成するアクション
