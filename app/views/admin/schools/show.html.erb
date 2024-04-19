@@ -1,0 +1,32 @@
+<% content_for(:title, t('.title')) %>
+<div class="container d-flex flex-wrap justify-content-center justify-content-center pt-5">
+  <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 526px;">
+    <h1><%= t('.title') %></h1>
+    <div class="text-right mb-3">
+      <%= link_to t('defaults.edit'), edit_admin_school_path(@school), class: 'btn btn-success' %>
+      <%= link_to t('defaults.delete'), admin_school_path(@school), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+    </div>
+    <table class="table table-bordered bg-white">
+      <tr>
+        <th scope="row"><%= School.human_attribute_name(:name) %></th>
+        <td><%= @school.name %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= School.human_attribute_name(:address) %></th>
+        <td><%= @school.address %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= School.human_attribute_name(:phone_number)%></th>
+        <td><%= @school.phone_number %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= School.human_attribute_name(:email)%></th>
+        <td><%= @school.email %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= School.human_attribute_name(:website) %></th>
+        <td><%= @school.website %></td>
+      </tr>
+    </table>
+  </div>
+</div>

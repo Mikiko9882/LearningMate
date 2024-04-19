@@ -46,6 +46,10 @@ class Admin::SchoolsController < Admin::BaseController
   end
     
   private
+
+  def set_school
+    @school = School.find(params[:id])
+  end
     
   def school_params
     params.require(:school).permit(:name, :address, :phone_number, :email, :website)

@@ -130,6 +130,10 @@ ja:
         title: '学校を登録する'
       index:
         title: '学校一覧'
+      show:
+        title: '学校詳細'
+      edit:
+        title: '内容を編集'
   rooms:
     index:
       title: 'メッセージ一覧'
