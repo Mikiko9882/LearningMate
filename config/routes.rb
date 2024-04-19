@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :teachers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
     devise_for :administrators,
                 only: %i[session password],
                 controllers: { passwords: 'admin/passwords',sessions: 'admin/sessions' }
-    resources :schools 
+    resources :schools do
+      resources :teachers, param: :code, only: %i[show new create edit update]
+    end
   end
 end

@@ -1,4 +1,6 @@
 class School < ApplicationRecord
+  has_many :teachers, dependent: :destroy
+
   validates :name, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true, format: { with: /\A\d{10,11}\z/}

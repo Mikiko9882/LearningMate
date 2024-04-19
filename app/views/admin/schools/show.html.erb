@@ -1,32 +1,45 @@
 <% content_for(:title, t('.title')) %>
-<div class="container d-flex flex-wrap justify-content-center justify-content-center pt-5">
-  <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 526px;">
-    <h1><%= t('.title') %></h1>
-    <div class="btn-group mb-3" role="group">
-      <%= link_to t('defaults.edit'), edit_admin_school_path(@school), class: 'btn btn-success' %>
-      <%= button_to t('defaults.delete'), admin_school_path(@school), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
+<!-- Breadcrumb -->
+<nav class="container mt-lg-4 pt-5" aria-label="breadcrumb"></nav>
+<!-- Page content -->
+<section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+  <!-- Page title + Layout switcher + Search form -->
+  <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
+    <div class="col-lg-5 col-md-4">
+      <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
     </div>
-    <table class="table table-bordered bg-white">
-      <tr>
-        <th scope="row"><%= School.human_attribute_name(:name) %></th>
-        <td><%= @school.name %></td>
-      </tr>
-      <tr>
-        <th scope="row"><%= School.human_attribute_name(:address) %></th>
-        <td><%= @school.address %></td>
-      </tr>
-      <tr>
-        <th scope="row"><%= School.human_attribute_name(:phone_number)%></th>
-        <td><%= @school.phone_number %></td>
-      </tr>
-      <tr>
-        <th scope="row"><%= School.human_attribute_name(:email)%></th>
-        <td><%= @school.email %></td>
-      </tr>
-      <tr>
-        <th scope="row"><%= School.human_attribute_name(:website) %></th>
-        <td><%= @school.website %></td>
-      </tr>
-    </table>
   </div>
-</div>
+  <div class="btn-group mb-3" role="group">
+    <%= link_to t('defaults.edit'), edit_admin_school_path(@school), class: 'btn btn-success' %>
+    <%= button_to t('defaults.delete'), admin_school_path(@school), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
+    <%= link_to '先生を追加する', new_admin_school_teacher_path(@school), class: 'btn btn-primary' %>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th><%= School.human_attribute_name(:name) %></th>
+          <th><%= School.human_attribute_name(:address) %></th>
+          <th><%= School.human_attribute_name(:phone_number)%></th>
+          <th><%= School.human_attribute_name(:email)%></th>
+          <th><%= School.human_attribute_name(:website) %></th>
+          <th>先生一覧</th>
+        </tr>
+        </thead>
+        <tbody>
+          <td><%= @school.name %></td>
+          <td><%= @school.address %></td>
+          <td><%= @school.phone_number %></td>
+          <td><%= @school.email %></td>
+          <td><%= @school.website %></td>
+          <td>
+            <% @school.teachers.each do |teacher| %>
+              <%= link_to teacher.name, admin_school_teacher_path(@school, teacher) %><br>
+            <% end %>
+          </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
