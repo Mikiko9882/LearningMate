@@ -3,9 +3,11 @@ ja:
     models:
       user: 'ユーザー'
       test_result: 'テスト結果'
+      school: '学校'
       grade: '学年'
       user_class: 'クラス'
-      group: 'グループ' 
+      group: 'グループ'
+      teacher: '先生' 
     attributes:
       user:
         password: 'パスワード'
@@ -20,6 +22,17 @@ ja:
         created_at: '作成日時'
         grade_id: '学年'
         user_class_id: 'クラス'
+      school:
+        name: '学校名'
+        address: '住所'
+        phone_number: '電話番号'
+        email: 'メールアドレス'
+        website: 'ウェブサイト'
+      teacher:
+        name: '名前'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
       test_result:
         title: 'テスト結果'
         test_name: "テスト名"
