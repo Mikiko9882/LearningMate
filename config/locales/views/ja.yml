@@ -123,7 +123,13 @@ ja:
         title: 'グループに追加する'
       create:
         success: 'グループに追加しました'
-        fail: 'グループに追加できませんでした'        
+        fail: 'グループに追加できませんでした'
+  admin:
+    schools:
+      new:
+        title: '学校を登録する'
+      index:
+        title: '学校一覧'
   rooms:
     index:
       title: 'メッセージ一覧'

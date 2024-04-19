@@ -16,5 +16,6 @@ Rails.application.routes.draw do
     devise_for :administrators,
                 only: %i[session password],
                 controllers: { passwords: 'admin/passwords',sessions: 'admin/sessions' }
+    resources :schools 
   end
 end
