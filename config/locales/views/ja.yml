@@ -141,6 +141,14 @@ ja:
         title: '先生詳細'
       edit:
         title: '内容を編集'
+  student:
+    sessions:
+      new:
+        title: 'ログイン'
+    registrations:
+      new:
+        title: '新規登録'
+
   rooms:
     index:
       title: 'メッセージ一覧'

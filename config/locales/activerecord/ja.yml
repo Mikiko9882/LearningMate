@@ -33,6 +33,14 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+      student:
+        name: '名前'
+        email: 'メールアドレス'
+        grade_id: '学年'
+        student_class_id: 'クラス'
+        school_id: '学校名'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
       test_result:
         title: 'テスト結果'
         test_name: "テスト名"
