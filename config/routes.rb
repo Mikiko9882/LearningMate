@@ -28,7 +28,18 @@ Rails.application.routes.draw do
   scope '/:school_code' do
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # 生徒用画面
-    devise_for :students
+    scope module: :student do
+      root to: 'tops#index', as: 'student_root'
+
+      devise_for :students,
+                 only: %i[session password registration confirmation],
+                 controllers: { passwords: 'student/passwords',
+                                sessions: 'student/sessions',
+                                registrations: 'student/registrations',
+                                confirmations: 'student/confirmations' }
+
+      resources :lessons, param: :code
+    end
 
     devise_for :teachers
 
