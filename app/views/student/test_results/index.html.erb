@@ -25,6 +25,10 @@
                 <li class="list-inline-item">
                   <%= l test_result.created_at, format: :long %>
                 </li>
+                <div class="d-flex gap-2">
+                  <%= link_to "Edit", edit_test_result_path(id: test_result.id), class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
+                  <%= button_to "Destroy", test_result_path(id: test_result.id), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "bi bi-trash3" %>
+                </div>
               </div>
               <h4 class= "mb-3">
                 <%= TestName.find(test_result.test_name_id).test_name %>
