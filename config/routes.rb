@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'terms_of_service', to: 'terms_of_service#show'
   get 'privacy_policy', to: 'privacy_policy#show'
 
+
+  
   namespace :admin, path: 'aaaaaaaa' do
     root to: 'tops#index', as: 'root'
     devise_for :administrators,
@@ -20,6 +22,15 @@ Rails.application.routes.draw do
       resources :teachers, param: :code, only: %i[show new create edit update]
     end
   end
-  
-  devise_for :teachers
+
+  #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  # マルチテナントの切り分け
+  scope '/:school_code' do
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # 生徒用画面
+    devise_for :students
+
+    devise_for :teachers
+
+  end
 end
