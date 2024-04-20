@@ -53,23 +53,6 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
-  test_results:
-    index:
-      title: "テスト結果一覧"
-      test_name: "テスト名"
-      score: "得点"
-      max_score: "満点"
-      achievement_rate: "達成率"
-      percentage_sign: "%"
-    new:
-      title: 'テスト結果入力'
-    subject_achievement_rate:
-      title: 'グラフで見る'
-      
-    edit:
-      title: '点数編集'
-    my_results:
-      title: '自分のテスト結果'
   profiles:
     show:
       title: 'プロフィール'
@@ -152,7 +135,19 @@ ja:
     registrations:
       new:
         title: '新規登録'
-
+    test_results:
+      index:
+        title: "テスト結果一覧"
+        test_name: "テスト名"
+        score: "得点"
+        max_score: "満点"
+        achievement_rate: "達成率"
+        percentage_sign: "%"
+      new:
+        title: 'テスト結果入力'
+        subject_achievement_rate:
+      edit:
+        title: '点数編集'
   rooms:
     index:
       title: 'メッセージ一覧'

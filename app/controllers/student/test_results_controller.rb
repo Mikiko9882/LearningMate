@@ -1,14 +1,15 @@
-class Student::TestResultsController < Student::BaseController
-  before_action :find_test_result, only: [:edit, :update, :destroy]
+class Student::TestResultsController < Student::BaseController 
 
+  before_action :find_test_result, only: [:edit, :update, :destroy]
+  
   def index
     @test_results = current_student.test_results
   end
-
+  
   def new
     @test_result = TestResult.new
   end
-
+  
   def create
     @test_result = current_student.test_results.build(test_result_params)
     if @test_result.save
@@ -18,11 +19,13 @@ class Student::TestResultsController < Student::BaseController
       render :new, status: :unprocessable_entity
     end
   end
-
+  
   def edit
+    @test_result = current_student.test_results.find(params[:id])
   end
-
+  
   def update
+    @test_result = current_student.test_results.find(params[:id])
     if @test_result.update(test_result_params)
       redirect_to @test_result, success: t('defaults.message.updated', item: TestResult.model_name.human)
     else
@@ -30,12 +33,13 @@ class Student::TestResultsController < Student::BaseController
       render :edit
     end
   end
-
+  
   def destroy
+    @test_result = current_student.test_results.find(params[:id])
     @test_result.destroy!
     redirect_to test_results_path, success: t('defaults.message.deleted', item: TestResult.model_name.human)
   end
-
+  
   def subject_achievement_rate
     @subjects = Subject.pluck(:subject_name)
     @data_by_subject = {}
@@ -46,14 +50,15 @@ class Student::TestResultsController < Student::BaseController
       }
     end
   end
-
+  
   private
-
+  
   def find_test_result
     @test_result = current_student.test_results.find(params[:id])
   end
-
+  
   def test_result_params
     params.require(:test_result).permit(:test_name_id, :score, :max_score_id, :preparation_time_minutes, :subject_id)
   end
 end
+  
