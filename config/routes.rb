@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # 生徒用画面
     scope module: :student do
-      root to: 'tops#index', as: 'student_root'
+      root to: 'test_results#index', as: 'student_root'
 
       devise_for :students,
                  only: %i[session password registration confirmation],
@@ -38,7 +38,11 @@ Rails.application.routes.draw do
                                 registrations: 'student/registrations',
                                 confirmations: 'student/confirmations' }
 
-      resources :lessons, param: :code
+      resources :test_results, except: [:show] do
+        collection do
+          get :subject_achievement_rate
+        end
+      end
     end
 
     devise_for :teachers

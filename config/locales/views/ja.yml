@@ -125,6 +125,10 @@ ja:
         success: 'グループに追加しました'
         fail: 'グループに追加できませんでした'
   admin:
+    administrators:
+      sessions:
+        new:
+          title: 'ログイン'
     schools:
       new:
         title: '学校を登録する'
