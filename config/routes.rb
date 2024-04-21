@@ -45,7 +45,14 @@ Rails.application.routes.draw do
       end
     end
 
-    devise_for :teachers
+    # 教師用画面
+    namespace :teacher, path: 't' do
+      root to: 'tops#index', as: 'root'
 
+      devise_for :teachers,
+                 only: %i[session password],
+                 controllers: { passwords: 'teacher/passwords',
+                                sessions: 'teacher/sessions' }
+    end
   end
 end
