@@ -149,6 +149,10 @@ ja:
         title: '点数編集'
       subject_achievement_rate:
         title: 'グラフで見る'
+  teacher:
+    sessions:
+      new:
+        title: 'ログイン'
   rooms:
     index:
       title: 'メッセージ一覧'
