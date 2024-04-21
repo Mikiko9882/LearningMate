@@ -53,6 +53,13 @@ Rails.application.routes.draw do
                  only: %i[session password],
                  controllers: { passwords: 'teacher/passwords',
                                 sessions: 'teacher/sessions' }
+                  
+      resources :students, only: %i[index edit update show destroy]
+      resources :test_results, only: %i[index edit update show destroy] do
+        collection do
+          get :subject_achievement_rate
+        end
+      end
     end
   end
 end

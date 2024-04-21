@@ -73,13 +73,6 @@ ja:
         fail: 'ログインに失敗しました'
       destroy:
         success: 'ログアウトしました'
-    users:
-      index:
-        title: '生徒一覧'
-      edit:
-        title: '生徒編集'
-      show:
-        title: '生徒詳細'
     test_results:
       index:
         title: 'テスト結果一覧'
@@ -153,6 +146,13 @@ ja:
     sessions:
       new:
         title: 'ログイン'
+    students:
+      index:
+        title: '生徒一覧'
+      edit:
+        title: '生徒編集'
+      show:
+        title: '生徒詳細'
   rooms:
     index:
       title: 'メッセージ一覧'
