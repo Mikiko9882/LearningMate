@@ -10,29 +10,29 @@ class Teacher::StudentsController < Teacher::BaseController
 
   def update
     if @student.update(student_params)
-      redirect_to teacher_student_path(@student), success: t('defaults.message.updated', item: Studnet.model_name.human)
+      redirect_to teacher_student_path(@student), success: t('defaults.message.updated', item: Student.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_updated', item: Studnet.model_name.human)
+      flash.now['danger'] = t('defaults.message.not_updated', item: Student.model_name.human)
       render 'edit', status: :unprocessable_entity
     end
   end
 
   def show
-    @average_achievement_rate = @studnet.average_achievement_rate
+    @average_achievement_rate = @student.average_achievement_rate
   end
 
   def destroy
-    @studnet.destroy!
+    @student.destroy!
     redirect_to teacher_studnets_path, success: t('defaults.message.deleted', item: Studnet.model_name.human)
   end
   
   private
 
-  def set_studnet
-    @student = Studnet.find(params[:id])
+  def set_student
+    @student = Student.find(params[:id])
   end
   
-  def studnet_params
+  def student_params
     params.require(:student).permit(:email, :password, :password_confirmation, :name, :grade_id, :student_class_id, :school_id )
   end
 end
