@@ -2,8 +2,7 @@ class Teacher::TestResultsController < Teacher::BaseController
   before_action :find_test_result, only: [:edit, :update, :show, :destroy]
 
   def index
-    @q = TestResult.ransack(params[:q])
-    @test_results = @q.result(distinct: true).includes(:user).order(created_at: :asc).page(params[:page])
+    @test_results = TestResult.all
   end
 
   def edit; end
@@ -25,13 +24,13 @@ class Teacher::TestResultsController < Teacher::BaseController
   end
 
   def subject_achievement_rate
-    @user = User.find(params[:id]).decorate
+    @student = Student.find(params[:id])
     @subjects = Subject.pluck(:subject_name)
     @data_by_subject = {}
     @subjects.each do |subject|
       @data_by_subject[subject] = {
-        line_chart_data: @user.test_results.achievement_rate_by_subject(subject).map.with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] },
-        scatter_chart_data: @user.test_results.scatter_chart_data_by_subject(subject)
+        line_chart_data: @student.test_results.achievement_rate_by_subject(subject).map.with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] },
+        scatter_chart_data: @student.test_results.scatter_chart_data_by_subject(subject)
       }
     end
   end
