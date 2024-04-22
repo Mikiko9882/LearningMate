@@ -8,6 +8,7 @@ ja:
       user_class: 'クラス'
       group: 'グループ'
       teacher: '先生' 
+      student: '生徒'
     attributes:
       administrator:
         password: 'パスワード'

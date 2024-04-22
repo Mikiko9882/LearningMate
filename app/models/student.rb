@@ -10,4 +10,8 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+
+  def average_achievement_rate
+    test_results.average(:achievement_rate)
+  end
 end

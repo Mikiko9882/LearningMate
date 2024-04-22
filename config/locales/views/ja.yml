@@ -73,22 +73,6 @@ ja:
         fail: 'ログインに失敗しました'
       destroy:
         success: 'ログアウトしました'
-    users:
-      index:
-        title: '生徒一覧'
-      edit:
-        title: '生徒編集'
-      show:
-        title: '生徒詳細'
-    test_results:
-      index:
-        title: 'テスト結果一覧'
-      edit:
-        title: 'テスト結果編集'
-      show:
-        title: 'テスト結果詳細'
-      subject_achievement_rate:
-        title: 'グラフで見る'
     groups:
       new:
         title: 'グループを作成'
@@ -153,6 +137,22 @@ ja:
     sessions:
       new:
         title: 'ログイン'
+    students:
+      index:
+        title: '生徒一覧'
+      edit:
+        title: '生徒編集'
+      show:
+        title: '生徒詳細'
+    test_results:
+      index:
+        title: 'テスト結果一覧'
+      edit:
+        title: 'テスト結果編集'
+      show:
+        title: 'テスト結果詳細'
+      subject_achievement_rate:
+        title: 'グラフで見る'
   rooms:
     index:
       title: 'メッセージ一覧'
